@@ -1,14 +1,16 @@
 @import "../../css-config/mixins.scss";
 .input-area{
+    background-image: url(../../assets/png.png);
+    background-size: cover;
     width: 100vw;
     height: 100lvh;
     @include md{
         width: 100vw;
         height: 94vh;
+        background-image: none;
     }
     .content-box{
-         background-image: url(../../assets/png.png);
-         background-size: cover;
+        
          width: 90%;
          display: flex;
          flex-direction: column;
@@ -17,6 +19,8 @@
          margin: 0 auto;
          margin-top: 10px;
          @include md{
+            background-image: url(../../assets/png.png);
+            background-size: cover;
             width: 50%;
             border: 1px solid rgba(15, 47, 255, 0.42);
             background-color: rgba(221, 221, 221, 0.1);

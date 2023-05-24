@@ -13,6 +13,10 @@
     height: 350px;
     margin: 0 auto;
   }
+  &.blur {
+    filter: blur(4px);
+    pointer-events: none;
+  }
   .ticket-header {
     width: 100%;
     display: flex;

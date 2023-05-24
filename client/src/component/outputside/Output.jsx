@@ -14,6 +14,7 @@ const Output = ({source, destination, flightPrice, selectedDate}) => {
     price: '4000',
     date: '01/05/2023'
   };
+  
   return (
     <div className="flight-ticket">
     <div className="ticket-header">

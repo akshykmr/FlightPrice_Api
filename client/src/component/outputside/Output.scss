@@ -2,7 +2,7 @@
 
 .flight-ticket {
   background-size: contain;
-  background-color: #fff;
+  background-color: #ffffffea;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -14,18 +14,23 @@
     margin: 0 auto;
   }
   .ticket-header {
+    width: 100%;
     display: flex;
     align-items: center;
     margin-bottom: 10px;
    @include md{
     margin-top: -20px;
+    width: 100%;
    }
     .logo {
-      img {
+       width: 33.3%;
+       display: flex;
+       justify-content: center;
+       margin-left: 10px;
+       img {
         width: 60px;
         height: 60px;
         @include md{
-            margin-left: 60px;
             width: 160px;
             height: 160px;
         }
@@ -33,24 +38,30 @@
     }
 
     .airline-info {
-      margin-left: 30px;
-    width: 100%;
+    width: 66.6%;
     display: flex;
-    justify-content: space-around;
       .airline {
-        font-size: 18px;
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        font-size: 15px;
         font-weight: bold;
         @include md{
+            width: 50%;
             font-size: 42px;
             text-transform: uppercase;
         }
       }
       .flight-number {
-        font-size: 14px;
+        width: 50%;
+        font-size: 12px;
         display: flex;
+        justify-content: flex-end;
         align-items: center;
+        margin-right: 10px;
         color: #666;
         @include md{
+            width: 50%;
             font-size: 22px;
             font-weight: 600;
             margin-right: 35px;
@@ -63,64 +74,173 @@
     margin-top: -10px;
     width: 100%;
     .route {
+      padding: 5px 0;
+      width: 100%;
       display: flex;
-      align-items: center;
-      justify-content: space-around;
-      margin-bottom: 10px;
       border: 1px solid rgba(0, 0, 255, 0.1);
-
-    margin: 10px 0;
-
-      .city {
+      .city1 {
         display: flex;
         align-items: center;
-        margin-right: 10px;
+        width: 45%;
+        margin-left: 10px;
         @include md{
+          font-size: 42px;
+          width: 45%;
+      }
+        svg{
+          width: 20%;
+          font-size: 20px;
+          display: flex;
+          justify-content: center;
+          @include md{
+            font-size: 32px;
+             width: 20%;
+        }
+        }
+        .city-name1 {
+          font-size: 12px;
+          font-weight: bold;
+          margin: 0 5px;
+          width: 80%;
+          @include md{
+            font-size: 22px;
+            margin: 0 20px;
+            width: 80%;
+          }
+        }
+      }
+      .arrow {
+        width: 10%;
+        font-size: 22px;
+        display: flex;
+        justify-content: center;
+        @include md{
+             width: 10%;
             font-size: 42px;
         }
-
-        .city-name {
-          font-size: 16px;
+      }
+      .city2 {
+        display: flex;
+        align-items: center;
+        width: 45%;
+        margin-right: 10px;
+        @include md{
+          font-size: 42px;
+          width: 45%;
+      }
+        svg{
+          width: 20%;
+          font-size: 20px;
+          display: flex;
+          justify-content: center;
+          @include md{
+            font-size: 32px;
+             width: 20%;
+        }
+        }
+        .city-name2 {
+          font-size: 12px;
+          font-weight: bold;
+          display: flex;
+          justify-content: flex-end;
+          margin: 0 5px;
+          width: 80%;
+          @include md{
+            display: flex;
+          justify-content: flex-end;
+            font-size: 22px;
+            margin: 0 20px;
+            width: 80%;
+          }
+        }
+      } 
+    }
+    .time {
+      margin-top: 10px;
+      padding: 5px 0;
+      width: 100%;
+      display: flex;
+      border: 1px solid rgba(0, 0, 255, 0.1);
+        @include md {
+          display: flex;
+          justify-content: space-around;
+      }
+      .departure{
+        width: 33.3%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-left: 10px;
+        gap: 2px;
+        @include md{
+          flex-direction: row;
+          width: 33.3%;
+          margin-left: 10px;
+        }
+        svg {
+          @include md{
+            margin-right: 10px;
+            font-size: 32px;
+          }
+        }
+        .time-label {
+          font-size: 12px;
+          color: #666;
+          @include md{
+            font-size: 18px;
+          }
+        }
+        .time-value {
+          font-size: 14px;
           font-weight: bold;
           margin-left: 5px;
           @include md{
             font-size: 22px;
-            margin: 0 20px;
           }
         }
       }
-
-      .arrow {
-        font-size: 20px;
-        @include md{
-            font-size: 42px;
-        }
-      }
-    }
-
-    .time {
-        padding: 5px;
-    border: 1px solid rgba(0, 0, 255, 0.1);
-        margin: 10px 0;
-      margin-top: 20px;
-      display: flex;
-      justify-content: space-around;
-      @include md {
-        display: flex;
-        justify-content: space-between;
-      }
-      .departure,
-      .arrival {
+      .Date {
+        width: 33.3%;
         display: flex;
         align-items: center;
-        margin-right: 10px;
+        justify-content: center;
+        flex-direction: column;
+        gap: 2px;
         @include md{
-            margin-left: 20px;
-            margin-right: 55px;
+          flex-direction: row;
+          width: 33.3%;
+          margin-left: 10px;
+        }
+        .date-label {
+          font-size: 12px;
+          color: #666;
+          @include md{
+            font-size: 18px;
+          }
+        }
+        .date-value {
+          font-size: 14px;
+          font-weight: bold;
+          margin-left: 5px;
+          @include md{
+            font-size: 22px;
+          }
+        }
+      }
+      .arrival {
+        width: 33.3%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 2px;
+        @include md{
+          flex-direction: row;
+          width: 33.3%;
+          margin-left: 10px;
         }
         svg {
-          margin-right: 5px;
           @include md{
+            margin-right: 10px;
             font-size: 32px;
           }
         }
@@ -145,14 +265,18 @@
     }
   }
   .ticket-price{
+    margin-top: 10px;
     display: flex;
     justify-content: center;
     border: 1px solid rgba(0, 0, 255, 0.1);
     span{
-        font-size: 32px;
+        font-size: 18px;
         margin: 20px;
         font-weight: 600;
         margin: 5px 10px;
+        @include md{
+          font-size: 32px;
+        }
     }
   }
 }

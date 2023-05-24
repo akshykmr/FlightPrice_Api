@@ -3,7 +3,7 @@ import { FaPlaneDeparture, FaPlaneArrival, FaClock } from 'react-icons/fa';
 import './Output.scss'
 import logo from '../../assets/Vistara-Logo.wine.svg'
 
-const Output = ({flightPrice}) => {
+const Output = ({source, destination, flightPrice, selectedDate}) => {
   const ticketData = {
     airline: 'Vistara',
     flightNumber: 'SG 123',
@@ -11,7 +11,8 @@ const Output = ({flightPrice}) => {
     destination: 'London',
     departureTime: '08:00 AM',
     arrivalTime: '03:30 PM',
-    price: '4000'
+    price: '4000',
+    date: '01/05/2023'
   };
   return (
     <div className="flight-ticket">
@@ -26,15 +27,15 @@ const Output = ({flightPrice}) => {
     </div>
     <div className="ticket-details">
       <div className="route">
-        <div className="city">
+        <div className="city1">
           <FaPlaneDeparture />
-          <span className="city-name">{ticketData.origin}</span>
+          <span className="city-name1">{source}</span>
         </div>
         <div className="arrow">
           <FaPlaneArrival />
         </div>
-        <div className="city">
-          <span className="city-name">{ticketData.destination}</span>
+        <div className="city2">
+          <span className="city-name2">{destination}</span>
           <FaPlaneArrival />
         </div>
       </div>
@@ -43,6 +44,10 @@ const Output = ({flightPrice}) => {
           <FaClock />
           <span className="time-label">Departure:</span>
           <span className="time-value">{ticketData.departureTime}</span>
+        </div>
+        <div className="Date">
+          <span className="date-label">Date:</span>
+          <span className="date-value">{selectedDate}</span>
         </div>
         <div className="arrival">
           <FaClock />
@@ -53,8 +58,7 @@ const Output = ({flightPrice}) => {
     </div>
     <div className="ticket-price">
       <span>Price:</span>
-      {/* <span>{ticketData.price}</span> */}
-      <span>{flightPrice}</span>
+      <span>{flightPrice} INR</span>
     </div>
   </div>
 

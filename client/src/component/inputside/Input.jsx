@@ -1,16 +1,9 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Input.scss';
-import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { BsCalendarDate } from 'react-icons/bs';
 import { CgArrowsExchangeAltV } from 'react-icons/cg';
 import Output from '../outputside/Output';
-
-
-
-
-
 
 const cities = [
   { city: 'Mumbai' },
@@ -28,13 +21,14 @@ const cities = [
 const Input = () => {
 
  const [selectedDate, setSelectedDate] = useState(null);
- const handleDateChange = (date) => {
-  setSelectedDate(date);
- };
  const [source, setSource] = useState('');
  const [destination, setDestination] = useState('');
  const [flightPrice, setFlightPrice] = useState('');
  const [isLoading, setIsLoading] = useState(false);
+
+ const handleDateChange = (event) => {
+  setSelectedDate(event.target.value);
+};
 
  const handleSourceChange = (e) => {
     setSource(e.target.value);
@@ -58,35 +52,31 @@ const Input = () => {
   const destinationOptions = cities.filter((city) => city.city !== source);
 
   const isDateOutOfRange = (date) => {
-    const startDate = new Date(2023, 4, 1); // index taken from 0 for month : 1 May
-    const endDate = new Date(2023, 4, 30); // 30 May
-    return date < startDate || date > endDate;
+    const startDate = new Date(2023, 4, 1);  // May 1st, 2023
+    const endDate = new Date(2023, 4, 30); // May 30th, 2023
+  
+    // Convert the selected date to a Date object for comparison
+    const selectedDate = new Date(date);
+  
+    return selectedDate < startDate || selectedDate > endDate;
   };
   
-  
-
   const handleSearch = async () => {
     try {
       setIsLoading(true);
-  
-      // const formattedDate = selectedDate.toLocaleDateString('en-US', {
-      //   year: 'numeric',
-      //   month: '2-digit',
-      //   day: '2-digit',
-      // }).split('/').reverse().join('-');
-  
       const response = await axios.get('http://localhost:3000/flights');
       const flights = response.data;
   
-      // Find the flight that matches the selected source, destination, and date
+      // Find the flight that matches the selected date
       const matchingFlight = flights.find((flight) => {
         return (
+          flight.date === selectedDate &&
           flight.source === source &&
-          flight.destination === destination
+         flight.destination === destination
         );
       });
   
-      if (matchingFlight) {
+      if (matchingFlight && matchingFlight.source === source && matchingFlight.destination === destination) {
         setFlightPrice(matchingFlight.price);
       } else {
         setFlightPrice('No matching flights found');
@@ -99,10 +89,7 @@ const Input = () => {
     }
   };
   
-  
-
   useEffect(() => {
-    // Clear the flight price when source or destination changes
     setFlightPrice('');
   }, [source, destination]);
 
@@ -141,22 +128,20 @@ const Input = () => {
                     {city.city}
                   </option> ))
                 }
-               </select>
+               </select> 
             </div>
             <div className="datepicker-container"> 
               {selectedDate && isDateOutOfRange(selectedDate) && (
-                <p style={{ color: 'red' }}>Please select a date between 1 May and 30 May.</p> )
+                <p style={{ color: 'red' }}>NOTE: Please select a date between 1 May and 30 May.</p> )
               }
-              <DatePicker className='datepicker' selected={selectedDate} onChange={handleDateChange} placeholderText="Choose a date"/>
-              <BsCalendarDate/>
+              <input type="date" value={selectedDate} onChange={handleDateChange} min="2023-01-01" max="2023-12-31" />
             </div>
             <button className="search-btn" onClick={handleSearch}>
             {isLoading ? 'Loading...' : 'Search'}
           </button>
           </div>
           <div className="output">
-          {/* <p>The price is : {flightPrice}</p> */}
-          <Output flightPrice={flightPrice} />
+          <Output source={source} destination={destination} flightPrice={isLoading ? 'Loading...' : flightPrice}selectedDate={selectedDate} />
           </div>
         </div>
       </div> 

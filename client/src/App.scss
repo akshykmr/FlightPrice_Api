@@ -1,0 +1,9 @@
+@import "./css-config/mixins.scss";
+.App{
+    background-image: url(./assets/203564.jpg);
+    background-position: right;
+    background-size: auto 100%;
+    @include md{
+        background-size: cover;
+    }
+}

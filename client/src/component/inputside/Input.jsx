@@ -156,7 +156,7 @@ const Input = () => {
           </div>
           <div className="output">
           {/* <p>The price is : {flightPrice}</p> */}
-          <Output/>
+          <Output flightPrice={flightPrice} />
           </div>
         </div>
       </div> 

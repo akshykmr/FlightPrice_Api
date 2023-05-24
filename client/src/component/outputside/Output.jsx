@@ -3,7 +3,7 @@ import { FaPlaneDeparture, FaPlaneArrival, FaClock } from 'react-icons/fa';
 import './Output.scss'
 import logo from '../../assets/Vistara-Logo.wine.svg'
 
-const Output = () => {
+const Output = ({flightPrice}) => {
   const ticketData = {
     airline: 'Vistara',
     flightNumber: 'SG 123',
@@ -53,7 +53,8 @@ const Output = () => {
     </div>
     <div className="ticket-price">
       <span>Price:</span>
-      <span>{ticketData.price}</span>
+      {/* <span>{ticketData.price}</span> */}
+      <span>{flightPrice}</span>
     </div>
   </div>
 

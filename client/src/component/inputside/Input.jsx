@@ -5,7 +5,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { BsCalendarDate } from 'react-icons/bs';
 import { CgArrowsExchangeAltV } from 'react-icons/cg';
-// import Output from '../outputside/Output';
+import Output from '../outputside/Output';
 
 
 
@@ -155,7 +155,8 @@ const Input = () => {
           </button>
           </div>
           <div className="output">
-          <p>The price is : {flightPrice}</p>
+          {/* <p>The price is : {flightPrice}</p> */}
+          <Output/>
           </div>
         </div>
       </div> 

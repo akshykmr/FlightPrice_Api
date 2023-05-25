@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Input.scss';
-import 'react-datepicker/dist/react-datepicker.css';
 import { CgArrowsExchangeAltV } from 'react-icons/cg';
 import Output from '../outputside/Output';
 

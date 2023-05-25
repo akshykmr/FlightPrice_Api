@@ -5,10 +5,10 @@ const Header = () => {
         <header className='main-header'> 
             <div className="header-content">
                 <div className="logo">Flight Price Checker</div>
-                <div className="signIn_Up">
+                {/* <div className="signIn_Up">
                    <li>Sign In</li>
                    <li>Sign Up</li>
-                </div>
+                </div> */}
             </div>
         </header>
         </>

@@ -63,7 +63,7 @@ const Input = () => {
   const handleSearch = async () => {
     try {
       setIsLoading(true);
-      const response = await axios.get('http://localhost:3000/flights');
+      const response = await axios.get('https://flight-price1.onrender.com/flights');
       const flights = response.data;
   
       // Find the flight that matches the selected date
@@ -131,7 +131,7 @@ const Input = () => {
             </div>
             <div className="datepicker-container"> 
               {selectedDate && isDateOutOfRange(selectedDate) && (
-                <p style={{ color: 'red' }}>NOTE: Please select a date between 1 May and 30 May.</p> )
+                <p style={{ color: 'black' }}>NOTE: Please select a date between 1 May and 30 May.</p> )
               }
               <input type="date" value={selectedDate} onChange={handleDateChange} min="2023-01-01" max="2023-12-31" />
             </div>

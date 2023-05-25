@@ -6,5 +6,6 @@
     background-size: auto 100%;
     @include md{
         background-size: cover;
+        overflow: hidden;
     }
 }

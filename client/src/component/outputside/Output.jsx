@@ -61,6 +61,10 @@ const Output = ({source, destination, flightPrice, selectedDate}) => {
       <span>Price:</span>
       <span>{flightPrice} INR</span>
     </div>
+    <div className="note">
+      <p> Disclaimer: </p>
+      <span> This is Randomly generated data shown for demo purposes only.</span>
+    </div>
   </div>
 
   )

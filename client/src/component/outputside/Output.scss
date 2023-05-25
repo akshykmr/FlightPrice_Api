@@ -280,4 +280,34 @@
         }
     }
   }
+  .note{
+    display: flex;
+    align-items: center;
+    height:20px;
+    margin-left: 8px;
+    margin-top: 5px;
+
+    p{
+      font-size: 10px;
+      font-weight: 600;
+    }
+    span{
+      font-size: 8px;
+    }
+    @include md{
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    height:20px;
+    margin-top: 10px;
+    p{
+      font-size: 16px;
+      font-weight: 600;
+    }
+    span{
+      margin-left: 5px;
+      font-size: 14px;
+    }
+  }
+}
 }
